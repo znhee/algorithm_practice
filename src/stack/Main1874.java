@@ -33,12 +33,12 @@ public class Main1874 {
 		Stack<Integer> stack = new Stack<>();
 		while(T-- > 0) {
 			int N = Integer.parseInt(br.readLine());
-			if(N > temp) {
+			if(N > temp) {		
 				for(int i=temp+1; i<=N; i++) {
 					stack.push(i);
 					sb.append("+").append("\n");
 				}
-				temp = N;
+				temp = N;		//	제일 마지막 숫자로 update
 			} else {
 				if(stack.peek() != N) {
 					b = false;
