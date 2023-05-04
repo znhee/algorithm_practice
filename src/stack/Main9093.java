@@ -17,14 +17,23 @@ public class Main9093 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int T = Integer.parseInt(br.readLine());
-		Stack<String> stack = new Stack<>();
 		
-		for(int i=0; i<T; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			stack.push(st.nextToken());
+		while(T-- > 0) {
+			Stack<Character> stack = new Stack<>();
+			String str = br.readLine() + "\n";
+			for(char ch: str.toCharArray()) {
+				if(ch == ' ' || ch == '\n') {	// 공백이나 개행일 경우
+					while(!stack.isEmpty()) {	
+						bw.write(stack.pop());	// 스택에서 데이터 꺼내서 버퍼에 담기
+					}
+					bw.write(ch);				// 공백이나 개행 버퍼에 담기
+				} else
+					stack.push(ch);				// stack에 데이터 담기
+			}
 		}
-		System.out.println(stack.peek());
+		bw.flush();
 	}
 
 }
