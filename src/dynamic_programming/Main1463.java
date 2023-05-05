@@ -1,4 +1,4 @@
-package DP;
+package dynamic_programming;
 
 import java.io.*;
 
