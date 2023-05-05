@@ -1,8 +1,5 @@
 package stack;
 
-import java.io.*;
-import java.util.*;
-
 /**
  문제
 	세계는 균형이 잘 잡혀있어야 한다. 양과 음, 빛과 어둠 그리고 왼쪽 괄호와 오른쪽 괄호처럼 말이다.
@@ -25,14 +22,50 @@ import java.util.*;
  출력
 	각 줄마다 해당 문자열이 균형을 이루고 있으면 "yes"를, 아니면 "no"를 출력한다.
 
-
  */
+
+import java.io.*;
+import java.util.*;
+
 public class Main4949 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String str = br.readLine();
 		
-	}
+		while(true) {
+			Stack<Character> stack = new Stack<>();
+			String str = br.readLine();
+			boolean b = true;	// b = ture -> Yes, b = false -> No
+			
+			if(str.equals(".")) break;	// 읽은 문자열이 .이면 반복문 종료
+			
+			for(int i=0; i<str.length(); i++) {
+				if(str.charAt(i) == '(' || str.charAt(i) == '[') {
+					// '(' 나 '[' 면 스택에 push
+					stack.push(str.charAt(i));
+				} else if(str.charAt(i) == ')'){
+					// 스택이 비어있거나 '(' 와 매치가 안 될 경우
+					if(stack.isEmpty() || stack.peek() != '(') {
+						b = false;
+						break;
+					} else {
+						stack.pop();
+					}
+				} else if (str.charAt(i) == ']') {
+					// 스택이 비어있거나 '[' 와 매치가 안 될 경우
+					if(stack.isEmpty() || stack.peek() != '[') {
+						b = false;
+						break;
+					} else {
+						stack.pop();
+					}
+				} 
+			}
+			if(b && stack.isEmpty()) 
+				System.out.println("yes");
+			else 
+				System.out.println("no");
 
+		}
+	}
 }
