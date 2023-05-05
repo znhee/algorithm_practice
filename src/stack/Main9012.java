@@ -37,7 +37,7 @@ public class Main9012 {
 					// '('면 스택에 push
 					stack.push('(');
 				} else {
-					// '('면 스택에서 pop
+					// ')'면 스택에서 pop
 					if(stack.isEmpty()) {
 						b = false;
 						break;
