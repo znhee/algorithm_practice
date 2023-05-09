@@ -18,7 +18,6 @@ package two_pointer;
 */
 
 import java.io.*;
-
 public class Main2018 {
 
 	public static void main(String[] args) throws IOException {
