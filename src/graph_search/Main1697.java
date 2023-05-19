@@ -19,7 +19,7 @@ import java.util.*;
 public class Main1697 {
 	
 	static int N, K;
-	static boolean[] visited = new boolean[100001];
+	static int[] visited;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,26 +27,44 @@ public class Main1697 {
 		
 		N = Integer.parseInt(st.nextToken());	// 수빈이의 위치
 		K = Integer.parseInt(st.nextToken());	// 동생의 위치
-		visited = new boolean[100001];
-		
-		bfs(N, K);
-	}
-	static void bfs(int start, int end) {
-		Queue<Integer> que = new LinkedList<>();
-		que.offer(N);
-		visited[N] = true;
-		int sec = 0;		// 이동 시간(초)
-		
-		while(!que.isEmpty()) {
-			int X = que.poll();
-			if(X-1 >= 0 && !visited[X-1]) {
-				X -= 1;
-				visited[X-1]=true;
-				sec++;
-			}
-				
+		visited = new int[100001];
+		visited[N] = 0;
+		if(N==K) {
+			System.out.print(0);
+		} else {
+			bfs(N);
 		}
 		
 	}
 
+	private static void bfs(int x) {
+		Queue<Integer> que = new LinkedList<>();
+		que.offer(x);
+		visited[x] = 1;
+		while(!que.isEmpty()) {
+			int now = que.poll();
+			for(int i=0; i<3; i++) {
+				int next;
+				if(i == 0) {
+					next = now + 1;
+				} else if(i == 1) {
+					next = now - 1;
+				} else {
+					next = now * 2;
+				}
+				
+				if(next == K) {
+					System.out.print(visited[now]);
+					return;
+				}
+				
+				if(next < 0 || next > 100000) continue;
+				if(visited[next] == 0) {
+					que.offer(next);
+					visited[next] = visited[now] + 1;
+				}	
+			}
+		}
+		
+	}
 }
