@@ -48,5 +48,4 @@ public class Main10816 {
 		}
 		System.out.print(sb.toString());
 	}
-
 }
