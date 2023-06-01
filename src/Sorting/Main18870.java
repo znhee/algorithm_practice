@@ -46,5 +46,4 @@ public class Main18870 {
 		}
 		System.out.print(sb.toString());
 	}
-
 }
