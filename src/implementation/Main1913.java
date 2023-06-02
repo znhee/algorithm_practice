@@ -34,11 +34,43 @@ public class Main1913 {
 		int N = Integer.parseInt(br.readLine());	// N = 홀수인 자연수
 		int M = Integer.parseInt(br.readLine());	// M = N2 이하의 자연수
 		
-		int[][] arr = new int[N][N];
-		int move = 0;
-		
+		int[][] map = new int[N][N];
+		int move = 1;
+		int value = 1;
+		int x = N/2;
+		int y = N/2;
+		map[y][x] = value;
 		while(true) {
-			
+			for(int i=0; i<move; i++) {
+				map[y--][x] = value++;
+			}
+			if(value == N*N+1) break;
+			for(int i=0; i<move; i++) {
+				map[y][x++] = value++;
+			}
+			move++;
+			for(int i=0; i<move; i++) {
+				map[y++][x] = value++;
+			}
+			for(int i=0; i<move; i++) {
+				map[y][x--] = value++;
+			}
+			move++;
 		}
+		StringBuilder sb = new StringBuilder();
+		int tx = 0;
+		int ty = 0;
+		for(int i=0; i<N; i++) {
+			for(int j=0; j<N; j++) {
+				sb.append(map[i][j]).append(" ");
+				if(M == map[i][j]) {
+					ty = i+1;
+					tx = j+1;
+				}
+			}
+			sb.append("\n");
+		}
+		sb.append(ty + " " + tx);
+		System.out.println(sb.toString());
 	}
 }
