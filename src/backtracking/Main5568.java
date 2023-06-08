@@ -52,17 +52,15 @@ public class Main5568 {
 			}
 			set.add(str);
 			return;
-		} else {
-			for(int i=0; i<N; i++) {
-				if(!visited[i]) {
-					visited[i] = true;
-					result[cardNum] = card[i];
-					solve(cardNum+1);
-					visited[i] = false;
-				}
+		} 
+		for(int i=0; i<N; i++) {
+			if(!visited[i]) {
+				visited[i] = true;
+				result[cardNum] = card[i];
+				solve(cardNum+1);
+				visited[i] = false;
 			}
 		}
-		
 	}
 
 }
