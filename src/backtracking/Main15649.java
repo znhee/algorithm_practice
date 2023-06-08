@@ -36,29 +36,33 @@ public class Main15649 {
 		for(int i=1; i<=N; i++) {
 			arr[i] = i;
 		}
-		solve(1);
-		System.out.print(set);
+		solve(0);
+		
+		ArrayList<String> list = new ArrayList<String>(set);
+		Collections.sort(list);
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+
 	}
 
 	private static void solve(int num) {
 		if(num == M) {
 			String s = "";
 			for(int i=0; i<M; i++) {
-				s += result[i];
+				s += result[i] + " ";
 			}
 			set.add(s);
 			return;
-		} else {
-			for(int i=1; i<=N; i++) {
-				if(!visited[i]) {
-					visited[i] = true;
-					result[num] = arr[i];
-					solve(num+1);
-					visited[i] = false;
-				}
+		}
+		for(int i=1; i<=N; i++) {
+			if(!visited[i]) {
+				visited[i] = true;
+				result[num] = arr[i];
+				solve(num+1);
+				visited[i] = false;
 			}
 		}
-		
 	}
 
 }
