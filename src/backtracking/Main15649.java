@@ -29,7 +29,7 @@ public class Main15649 {
 		M = Integer.parseInt(st.nextToken());
 		
 		arr = new int[N+1];
-		result = new int[N+1];
+		result = new int[M];
 		set = new HashSet<String>();
 		visited = new boolean[N+1];
 		
@@ -49,7 +49,7 @@ public class Main15649 {
 	private static void solve(int num) {
 		if(num == M) {
 			String s = "";
-			for(int i=0; i<M; i++) {
+			for(int i=0; i<result.length; i++) {
 				s += result[i] + " ";
 			}
 			set.add(s);
