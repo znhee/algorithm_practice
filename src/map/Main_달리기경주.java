@@ -1,5 +1,9 @@
 package map;
 
+/**
+프로그래머스 1단계 : 달리기 경주
+*/
+
 import java.util.*;
 class Main_달리기경주 {
     public String[] solution(String[] players, String[] callings) {
