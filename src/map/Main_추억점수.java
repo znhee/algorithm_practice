@@ -3,6 +3,7 @@ package map;
 /**
  프로그래머스 1단계 : 추억 점수
 */
+
 import java.util.*;
 
 class Main_추억점수 {
