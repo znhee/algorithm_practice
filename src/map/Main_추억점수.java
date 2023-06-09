@@ -5,7 +5,7 @@ package map;
 */
 import java.util.*;
 
-class Solution {
+class Main_추억점수 {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
         HashMap<String, Integer> map = new HashMap<>();
         for(int i=0; i<name.length; i++) {
